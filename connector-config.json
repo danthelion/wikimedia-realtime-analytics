@@ -1,0 +1,13 @@
+{
+    "connector.class": "com.snowflake.kafka.connector.SnowflakeSinkConnector",
+    "name": "snowflake-connector-yzzk",
+    "snowflake.database.name": "<SNOWFLAKE_DATABASE>",
+    "snowflake.ingestion.method": "snowpipe_streaming",
+    "snowflake.private.key": "",
+    "snowflake.role.name": "<SNOWFLAKE_ROLE>",
+    "snowflake.schema.name": "<SNOWFLAKE_SCHEMA>",
+    "snowflake.url.name": "<account_identifier>.snowflakecomputing.com:443",
+    "snowflake.user.name": "<SNOWFLAKE_USER>",
+    "topics": "owlshop-orders",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter"
+}
