@@ -8,14 +8,15 @@ import requests
 from kafka.admin import NewTopic
 
 BOOTSTRAP_SERVERS = (
-    "broker:19092" if os.getenv("RUNTIME_ENVIRONMENT") == "DOCKER" else "localhost:9092"
+    "redpanda:9092" if os.getenv("RUNTIME_ENVIRONMENT") == "DOCKER" else "localhost:19092"
 )
 
 CHANGE_EVENTS_URL = "https://stream.wikimedia.org/v2/stream/recentchange"
-TOPIC = "recentchange"
+TOPIC = "wikichanges"
 
 
 def create_topic_if_not_exists(topic: str) -> None:
+    print(f"Creating topic {topic}, in broker {BOOTSTRAP_SERVERS}")
     admin_client = KafkaAdminClient(
         bootstrap_servers=BOOTSTRAP_SERVERS, client_id="wikidata-producer"
     )
